@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<header>
+		<img src="/home/qburst/Desktop/sample project/Images/2_414_s.jpg" width="80px" style="float:right;width:40px;">
+		
+			<div class="dropdown">
+  				<label class="dropbtn">Business Analysis</label>
+  				<div class="dropdown-content">
+    				<label onclick="change(0)">Business Approach</label>
+    				<label onclick="change(1)">Current Statistics</label>
+  				</div>
+			</div>
+			<div class="dropdown">
+  				<label class="dropbtn">Marketing Research</label>
+  				<div class="dropdown-content">
+    				<label onclick="change(2)">Current Trends</label>
+    				<label onclick="change(3)">Efficient Marketing</label>
+  				</div>
+			</div>
+			<button class="dropbtn" style="margin-left: 800px;" onclick="pop()">Contact Us</button>
+			<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2 style="margin-top:0;color:#7A091C">Contact Us</h2>
+		<a class="close" href="/home/qburst/Desktop/sample project/main.html">&times;</a>
+		<div class="content">
+			
+		</div>
+	</div>
+</div>
+			<!--<select>
+
+					<option disabled selected>Business Analysis</option>
+					<option>Business Approach</option>
+					<option onselect="change(0)">Current Statistics</option>
+			</select>
+			<select>
+					
+					<option disabled selected>Marketing Research</option>
+					<option onchange="change(0)">Current Trends</option>
+					<option onchange="change(0)">Efficient Marketing</option>
+			</select>-->
+		
+	</header>
+	<section>
+		<p id="para">We are the market leaders in<br/>Business Analysis and <br/>Marketing Research.
+		</font></p>
+	</section>
+</body>
+<head>
+	<style>
+	.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+
+		.dropbtn {
+    background-color:  #ffe6e6;
+    
+    padding: 14px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+
+		}
+		.dropbtn:hover{
+			background-color: #C22554;
+
+		}
+		
+		.dropdown {
+ 		   position: relative;
+    		display: inline-block;
+		}
+		.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
+		.dropdown-content label {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+		}
+		.dropdown:hover .dropdown-content {
+    display: block;
+
+		}
+		.dropdown:hover .dropbtn{
+			background-color: #C22554;
+		} 
+		.dropdown-content label:hover {background-color: #f1f1e2;
+		cursor: pointer;
+		}
+
+		section{
+			
+			font-size: 60px;
+		}
+		h1{
+			font-size: 30px;
+			
+		}
+		header{
+			
+			margin:10px;
+			padding: 10px;
+			margin:0px;
+			word-spacing: 10px;
+		}
+		body{
+			background-image: url("/home/qburst/Desktop/sample project/Images/Business-Photos.jpg");
+
+			background-size: cover;
+
+
+		}
+	
+		p{
+			margin-top:150px;
+			margin-left: 60px;
+			color:#7A091C;
+			
+
+		}
+	</style>
+	<script type="text/javascript">
+		var txt=document.getElementById("para");
+		
+		function change(x)
+		{
+			
+			if(x==0){
+				txt.innerHTML="We help your Business<br/>grow with best approach.";
+				txt.style.marginLeft="130px";
+				txt.style.marginTop="150px";
+				txt.style.color="#143B05";
+				document.body.style.background="url('/home/qburst/Desktop/sample project/Images/Untitled-3-copy.jpg')";
+				
+
+			}
+			
+			else if(x==1){
+				txt.innerHTML="We support you to manage your Business analysing current scenario.";
+				txt.style.marginLeft="700px";
+				txt.style.marginTop="30px";
+				txt.style.color="black";
+				document.body.style.background="url('/home/qburst/Desktop/sample project/Images/business-statistics-12449648.jpg')";
+			}
+			else if(x==2){
+				txt.innerHTML="We analyse the current<br/>trends in the market<br/>and facilitate your<br/>product hit the<br/>market.";
+				txt.style.marginLeft="50px";
+				txt.style.marginTop="90px";
+				txt.style.color="#C22554";
+				document.body.style.background="url('/home/qburst/Desktop/sample project/Images/images (1).jpg')";
+			}
+			else if(x==3){
+				txt.innerHTML="We adopt the best<br/>practice for your<br/>product marketing.";
+				txt.style.marginLeft="100px";
+				txt.style.marginTop="110px";
+				txt.style.color="#7A091C";
+				document.body.style.background="url('/home/qburst/Desktop/sample project/Images/marketing-charts-2016_mini-1100x620.jpeg')";
+			}
+			document.body.style.backgroundSize="cover";
+		}
+		function pop()
+		{
+			document.getElementById("popup1").style.visibility="visible";
+			document.getElementById("popup1").style.opacity=1;
+			
+		}
+	</script>
+</head>
+</html>
