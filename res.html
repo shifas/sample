@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #F7EFD7;
+			
+		}
+		
+		.container{
+		}	
+		.header{
+			margin-left: -0px;
+			
+			width:70%;
+			position:fixed;
+			top:0px;
+			z-index:999;
+			background-color: #F7EFD7;
+		}
+		.contact{
+			margin-top: 30px;
+			margin-bottom: 5px;
+			padding:20px;
+			background: #E2F59F;
+			border-radius: 20px;float:right;
+			cursor: pointer;
+			border-style: solid;
+			border-width: 3px;
+			border-color:  #e8e8e8;
+		}
+		.contact:hover{
+			background-color: #595D5E;
+			color:white;
+		}
+		.inner{
+			width:68%;
+			margin:40px auto;
+			display: block;
+			overflow: hidden;
+			height:1000px;
+		}
+  		.border{
+  			margin-top:35px; 
+  			overflow: hidden;
+  			transition: all 3s ease-in-out; 
+			border-radius: 20px;
+  			 position: relative;
+  			 height:300px;
+  			 border-style: solid;
+			border-width: 3px;
+			border-color:  #e8e8e8;
+			background-image: url("/home/qburst/Desktop/sample 2/images/food_picture_01_hd_pictures_167558.jpg");
+			background-size: cover;
+			background-position: bottom;
+  			 
+  		}
+  		.todays{
+  			
+  			opacity:.8;
+  			border-radius: 20px;
+  			 position: relative;
+  			 height:auto;
+  			 border-style: solid;
+			border-width: 3px;
+			border-color:  #e8e8e8;
+			overflow: hidden;
+			
+			display:inline-block;
+			width:40%;
+			padding: 20px;
+
+  		}
+  		.todays:hover{
+  			opacity:1.0;
+  			background-color: #D5F230;
+  		}
+  		.popular
+  		{
+  			opacity:.8;
+  			top:-110px;
+  			border-radius: 20px;
+  			 position: relative;
+  			 height:auto;
+  			 border-style: solid;
+			border-width: 3px;
+			border-color:  #e8e8e8;
+			overflow: hidden;
+			width: 59%;
+			display:inline-block;
+			position: relative;
+			padding: 20px;
+	
+  		}
+  		.popular:hover{
+  			opacity:1.0;
+  			background-color: #D5F230;
+  		}
+  		.img {
+  			display: inline-block;
+    		margin: 5px;
+    		border: 1px solid #ccc;
+    		width: 80px;
+    		height: 100px;
+		}
+
+		.img:hover {
+    		border: 1px solid #777;
+    		width:90px;
+		}
+
+		.img img{
+    		width: 100%;
+    		height: 50px;
+		}
+
+		.desc {
+    		padding: 10px auto;
+    		text-align: center;
+    		background-color: #595D5E;
+    		color:white;
+    		height:50px;
+
+			}
+  		.footer{
+  			background: white;
+  			position: fixed;
+  			bottom: 0;
+  			left:0;
+  			height:10%;
+  			width: 100%;
+  			z-index: 1000;
+  		}
+  		
+  		.dropbtn{
+  			
+  			border-style: solid;
+			border-width: 3px;
+			border-color:  #e8e8e8;
+			
+			background-color:  #E2F59F;
+			width: 132px;
+			height: 25px;
+		    border-radius: 60px 60px 0 0; 
+		    
+
+		    overflow: hidden;
+		    text-align: center;
+		    position:relative; 
+		    display: inline-block;
+		    cursor: pointer;
+		    
+  		}
+  
+		.dropbtn:hover{
+		background-color: #C22554;
+		color:white;
+		}
+		.dropdown {
+		z-index: 999;
+ 		position: relative;
+    	display: inline-block;
+    	margin-top: 65px;
+		}
+		.dropdown-content {
+    	display: none;
+    	position: absolute;
+    	background-color: #f9f9f9;
+    	text-align: center;
+    	min-width: 130px;
+    	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    	border-radius:0px 0px 50px 50px;
+    	overflow: hidden;
+		}
+		.dropdown-content label {
+    	color: black;
+    	padding: 12px 12px;
+    	text-decoration: none;
+
+    	display:inline-flex;
+		}
+		.dropdown:hover .dropdown-content {
+    	display: inline;
+		}
+		.dropdown:hover .dropbtn{
+		background-color: #8A9091;
+		} 
+		.dropdown-content label:hover {background-color: #f1f1e2;
+		cursor: pointer;
+		}
+
+		.overlay {
+		z-index: 1000;
+  		position: fixed;
+  		top: 0;
+  		bottom: 0;
+  		left: 0;
+  		right: 0;
+  		background: rgba(0, 0, 0, 0.7);
+  		transition: opacity 500ms;
+  		visibility: hidden;
+  		opacity: 0;
+		}
+
+		.popup {
+  		margin: 70px auto;
+  		padding: 20px;
+  		background: #fff;
+  		border-radius: 0px 40px 0px 40px;
+  		width: 30%;
+  		position: relative;
+  		transition: all 5s ease-in-out;
+  		height: auto;
+		}
+		.popup .close {
+  		position: absolute;
+  		top: 20px;
+  		right: 30px;
+  		transition: all 200ms;
+  		font-size: 30px;
+  		font-weight: bold;
+  		text-decoration: none;
+  		color: #333;
+		}
+		.popup .close:hover {
+  		color: #06D85F;
+  		cursor: pointer;
+		}
+		hr{
+		margin-top: 0px;
+		}
+		.content{
+		background-color: #F7EFD7;
+		padding:20px;
+		margin: 10px;
+		}
+		.content input{
+		border-color:"#6F7070";
+		float:right;
+		
+		}
+		.content label{
+		font-weight:bold;
+		color: #595D5E;
+		}
+		.content button{
+		padding:10px;
+		color:#7A091C;
+		margin-left:122px;
+		}
+		#err{
+		color:#F20727;
+		}
+	</style>
+  	
+</head>
+<body>
+	<div class="container">
+	<img src="/home/qburst/Desktop/sample 2/images/The-dining-room.jpg" style="max-width:190px;top:0;border-radius:40%;position:fixed">
+		
+		<div class="inner">
+			
+			<div class="header">
+			<div class="dropdown">
+				<label class="dropbtn">Love Food?</label>
+				<div class="dropdown-content">
+					<label onclick="scroll(0)">Today' Special</label>
+					<label onclick="scroll(0)">The Popular</label>
+				</div>
+				</div>
+			
+			<div class="dropdown">
+				<label class="dropbtn">Image Gallery</label>
+				<div class="dropdown-content">
+					<label>HELLo</label>
+					<label>Hyyyabel</label>
+				</div>
+				
+			</div>
+			<label onclick="popup()" class="contact">Contact Us</label>
+			</div>
+			
+		<div class="border" id="border">
+		</div>
+		<div class="lovefood" style="display:inline-block;padding:10px;margin:auto;">
+		<div class="todays">
+			<b>Today's Special</b><br/>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/food_picture_03_hd_pictures_167556.jpg">
+				<div class="desc">Tikka chicken</div>
+			</div>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/8538271-mexican-food-dishes-at-the-restaurant-on-a-white-background.jpg">
+				<div class="desc">Mexican Sandwich</div>
+			</div>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/Food-Pictures-4.jpg">
+				<div class="desc">Spicy<br>Pizza</div>
+			</div>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/fruit_vegetables_fish_garnish_lemon_food_74301_2048x1152.jpg">
+				<div class="desc">Fish<br>Garnish</div>
+			</div>
+		
+		
+		</div>
+
+		<div class="popular"">
+			<b>The Popular</b><br/>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/images.jpg">
+				<div class="desc">Chicken Biriyani</div>
+			</div>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/Poori-Aloo-curry-2-001.jpg">
+				<div class="desc">Poori<br>Aloo</div>
+			</div>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/puttu.jpg">
+				<div class="desc">Puttu<br>Curry</div>
+			</div>
+			<div class="img">
+				<img src="/home/qburst/Desktop/sample 2/images/chennaicitypage_03art1_gt819dhqj119nxg_p3_meals.jpg">
+				<div class="desc">Kerala<br>Sadhya</div>
+			</div>
+		
+		
+		</div>
+		</div>
+
+		<div id="popup1" class="overlay">
+				<div class="popup">
+					<h2 style="margin-top:0;color:#7A091C">Contact Us</h2>
+					<a class="close" onclick="popdown()">&times;</a>
+					<hr>
+					<div class="content">
+						
+						<label>Name:</label>
+						<input type="text" id="name" placeholder="Enter your name" setfocus><br/></br>
+						
+						<label>E-mail:</label>
+						<input type="text" id="email" placeholder="Enter your E-mail" autocomplete="off"><br/></br>
+
+						<label>Mobile No:</label>
+						<input type="text" id="phone" placeholder="Enter your Mobile No"><br/></br>
+						
+						
+						<button onclick="validate()">Go</button>
+					</div>
+				</div>
+			</div>
+			
+		
+		</div>
+		
+	</div>
+	<script src="new1.js">
+  	
+  	</script>
+</body>
+
+</html>
